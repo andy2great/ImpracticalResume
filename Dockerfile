@@ -2,7 +2,6 @@
 FROM node:13.12.0-alpine as build-stage
 WORKDIR /resumeApp
 COPY package*.json /resumeApp/
-RUN npm install
 COPY ./ /resumeApp/
 EXPOSE 3000
 # Stage 1, based on Nginx, to have only the compiled app, ready for production with Nginx
