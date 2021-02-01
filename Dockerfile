@@ -1,9 +1,5 @@
 # Stage 0, "build-stage", based on Node.js, to build and compile the frontend
-FROM tiangolo/node-frontend:10 as build-stage
-RUN apt-get update
-RUN apt-get -y install curl gnupg
-RUN curl -sL https://deb.nodesource.com/setup_11.x  | bash -
-RUN apt-get -y install nodejs
+FROM node:13.12.0-alpine as build-stage
 WORKDIR /resumeApp
 COPY package*.json /resumeApp/
 RUN npm install
